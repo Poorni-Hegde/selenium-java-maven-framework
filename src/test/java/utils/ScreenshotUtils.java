@@ -10,13 +10,13 @@ import java.io.IOException;
 
 public class ScreenshotUtils {
 
-    public static void captureScreenshot(WebDriver driver, String testName) {
+    public static String captureScreenshot(WebDriver driver, String testName) {
 
         File srcFile =
                 ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
         File destFile =
-                new File("screenshots/" + testName + ".png");
+                new File("target/test-output/screenshots/" + testName + ".png");
 
         try {
             FileUtils.copyFile(srcFile, destFile);
@@ -24,5 +24,6 @@ public class ScreenshotUtils {
         catch (IOException e) {
             e.printStackTrace();
         }
+        return "screenshots/" + testName + ".png";
     }
 }

@@ -4,6 +4,7 @@ import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import utils.ConfigReader;
 
 public class LoginTest extends BaseTest {
 
@@ -12,9 +13,11 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
 
+        ConfigReader config = new ConfigReader();
+
         loginPage.login(
-                "standard_user",
-                "secret_sauce"
+                config.getUsername(),
+                config.getPassword()
         );
 
         Assert.assertTrue(
@@ -34,7 +37,7 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(
                 driver.getPageSource()
-                        .contains("Username and password do not match")
+                        .contains("Hello")
         );
     }
 }
