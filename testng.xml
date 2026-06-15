@@ -9,8 +9,11 @@
     <test name="Regression Tests">
 
         <classes>
+
             <class name="tests.LoginTest"/>
             <class name="tests.CartTest"/>
+            <class name="tests.DataProviderLoginTest"/>
+
         </classes>
 
     </test>

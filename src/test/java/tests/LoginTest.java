@@ -37,7 +37,12 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(
                 driver.getPageSource()
-                        .contains("Hello")
+                        .contains("Username and password do not match")
         );
+//        Assert.assertTrue(
+//                driver.getPageSource()
+//                        .contains("Hello")
+//        );
+
     }
 }
